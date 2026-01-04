@@ -1,9 +1,5 @@
-document.addEventListener("contextmenu", e => e.preventDefault());
-
-document.onkeydown = e => {
-  if (
-    e.key === "F12" ||
-    (e.ctrlKey && e.shiftKey && ["I", "C", "J"].includes(e.key)) ||
-    (e.ctrlKey && e.key === "U")
-  ) return false;
+document.addEventListener("contextmenu",e=>e.preventDefault());
+document.onkeydown=e=>{
+  if(e.keyCode===123||(e.ctrlKey&&e.shiftKey&&e.key==="I")||(e.ctrlKey&&e.key==="u"))
+    return false;
 };

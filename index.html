@@ -7,21 +7,38 @@
 </head>
 <body>
 
+<!-- SIDE NEON BARS -->
+<div class="side-bar left"></div>
+<div class="side-bar right"></div>
+
+<!-- HUD -->
+<div class="hud left-hud">
+  <div>⚡ STATUS: <span>ONLINE</span></div>
+  <div>🔒 NODES: <span>04</span></div>
+</div>
+<div class="hud right-hud">
+  <div>🕒 UTC <span id="time">00:00</span></div>
+</div>
+
 <canvas id="particles"></canvas>
 
-<div class="top-title" id="title">AVION<div class="underline"></div></div>
+<div class="top-title" id="title">
+  AVION
+  <div class="underline"></div>
+</div>
 
 <div class="center">
   <h1>🚀 AVION</h1>
   <p>❓ DO YOU KNOW HOW TO BEAM?</p>
-
   <div class="buttons">
-    <a href="cards.html" class="btn yes">✅ YES</a>
-    <a href="https://discord.gg/HXDVeNrDs2" class="btn no">❌ NO</a>
+    <a href="cards.html" class="btn">✅ YES</a>
+    <a href="https://discord.gg/HXDVeNrDs2" class="btn">❌ NO</a>
   </div>
 </div>
 
 <script src="particles.js"></script>
+<script src="effects.js"></script>
+<script src="hud.js"></script>
 <script src="anti-inspect.js"></script>
 </body>
 </html>

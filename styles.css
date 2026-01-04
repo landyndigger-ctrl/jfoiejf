@@ -113,7 +113,7 @@ canvas {
 
 /* ================= CARDS ================= */
 .card-wrapper {
-  margin-top: 170px;
+  margin-top: 95px; /* moves cards further UP */
   display: flex;
   justify-content: center;
   z-index: 5;

@@ -1,50 +1,37 @@
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
+canvas.width = innerWidth;
+canvas.height = innerHeight;
 
-let w, h;
-const mouse = { x: null, y: null, r: 120 };
+let mouse = { x: null, y: null };
 
-function resize() {
-  w = canvas.width = innerWidth;
-  h = canvas.height = innerHeight;
-}
-addEventListener("resize", resize);
-resize();
+window.onmousemove = e => {
+  mouse.x = e.x;
+  mouse.y = e.y;
+};
 
-addEventListener("mousemove", e => {
-  mouse.x = e.clientX;
-  mouse.y = e.clientY;
-});
-
-const particles = [...Array(90)].map(() => ({
-  x: Math.random() * w,
-  y: Math.random() * h,
-  vx: (Math.random() - 0.5) * 0.4,
-  vy: (Math.random() - 0.5) * 0.4,
-  r: Math.random() * 1.6 + 0.4
+let particles = Array.from({ length: 80 }, () => ({
+  x: Math.random()*canvas.width,
+  y: Math.random()*canvas.height,
+  vx: Math.random()-0.5,
+  vy: Math.random()-0.5
 }));
 
-(function animate() {
-  ctx.clearRect(0, 0, w, h);
-
+function animate() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
   particles.forEach(p => {
+    let dx = mouse.x - p.x;
+    let dy = mouse.y - p.y;
+    let dist = Math.sqrt(dx*dx+dy*dy);
+    if (dist < 120) {
+      p.vx -= dx/6000;
+      p.vy -= dy/6000;
+    }
     p.x += p.vx;
     p.y += p.vy;
-
-    let dx = p.x - mouse.x;
-    let dy = p.y - mouse.y;
-    let dist = Math.sqrt(dx * dx + dy * dy);
-
-    if (dist < mouse.r) {
-      p.x += dx / dist * 2;
-      p.y += dy / dist * 2;
-    }
-
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(255,180,220,0.6)";
-    ctx.fill();
+    ctx.fillStyle = "rgba(180,100,255,0.8)";
+    ctx.fillRect(p.x,p.y,2,2);
   });
-
   requestAnimationFrame(animate);
-})();
+}
+animate();

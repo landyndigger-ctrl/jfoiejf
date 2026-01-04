@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #3a1c4a, #0b0612);
+  color: white;
+  overflow-x: hidden;
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* LANDING */
+.center {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.center h1 {
+  font-size: 52px;
+  letter-spacing: 5px;
+}
+
+.buttons {
+  margin-top: 25px;
+}
+
+.btn {
+  padding: 12px 30px;
+  margin: 0 10px;
+  border-radius: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.yes {
+  background: pink;
+  color: black;
+}
+
+.no {
+  border: 1px solid white;
+  color: white;
+}
+
+/* CARDS */
+.card-grid {
+  padding: 70px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 30px;
+  text-align: center;
+  backdrop-filter: blur(12px);
+}
+
+.card button {
+  margin-top: 18px;
+  padding: 10px 22px;
+  border-radius: 12px;
+  border: none;
+  background: pink;
+  cursor: pointer;
+}
+
+/* DISCORD BUTTON */
+.discord-btn {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 38px;
+  text-decoration: none;
+  color: white;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: 0.25s;
+}
+
+.discord-btn:hover {
+  box-shadow:
+    0 0 12px white,
+    0 0 28px rgb(180, 100, 255);
+}

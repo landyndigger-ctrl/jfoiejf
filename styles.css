@@ -1,3 +1,19 @@
+/* TOP TITLE */
+.top-title {
+  position: fixed;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 6px;
+  color: rgb(255, 180, 220);
+  text-shadow:
+    0 0 10px rgba(255, 180, 220, 0.9),
+    0 0 22px rgba(180, 100, 255, 0.8);
+  z-index: 999;
+  user-select: none;
+}
 body {
   margin: 0;
   font-family: Arial, sans-serif;

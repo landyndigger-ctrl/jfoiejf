@@ -1,70 +1,131 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
-  background: radial-gradient(circle at top, #3a1c4a, #0b0612);
-  color: white;
-  overflow-x: hidden;
 }
 
-#particles {
+body {
+  background: #050008;
+  color: white;
+  overflow: hidden;
+}
+
+canvas {
   position: fixed;
   inset: 0;
-  z-index: -1;
-  pointer-events: none;
+  z-index: 0;
 }
 
-/* ================= TOP TITLE ================= */
+/* TITLE */
 .top-title {
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 900;
   letter-spacing: 6px;
-  color: rgb(255, 180, 220);
-  text-shadow:
-    0 0 10px rgba(255,180,220,.9),
-    0 0 26px rgba(180,100,255,.9);
-  animation: glowPulse 2.8s ease-in-out infinite;
-  z-index: 999;
-  user-select: none;
+  color: rgb(255,180,220);
+  animation: glow 3s infinite alternate;
+  z-index: 10;
+  cursor: default;
 }
 
-/* Sticky underline */
-.top-title::after {
-  content: "";
-  display: block;
-  width: 65%;
+.underline {
   height: 2px;
-  margin: 6px auto 0;
-  background: linear-gradient(90deg, transparent, #ffb4dc, transparent);
-  opacity: .9;
+  width: 100%;
+  margin-top: 6px;
+  background: linear-gradient(90deg, purple, pink);
+  box-shadow: 0 0 10px pink;
 }
 
-/* Glow pulse animation */
-@keyframes glowPulse {
-  0%,100% {
-    text-shadow:
-      0 0 10px rgba(255,180,220,.8),
-      0 0 22px rgba(180,100,255,.7);
-  }
-  50% {
-    text-shadow:
-      0 0 18px rgba(255,200,235,1),
-      0 0 36px rgba(200,120,255,1);
-  }
+@keyframes glow {
+  from { text-shadow: 0 0 8px pink; }
+  to { text-shadow: 0 0 24px violet; }
 }
 
-/* ================= LANDING ================= */
+/* CENTER */
 .center {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
+  z-index: 5;
 }
 
 .buttons {
-  margin-to
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 14px 34px;
+  margin: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  background: rgba(150,0,255,0.35);
+  border: 1px solid purple;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  box-shadow: 0 0 20px purple;
+}
+
+/* CARDS */
+.card-grid {
+  position: relative;
+  top: 160px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  padding: 80px;
+  z-index: 5;
+}
+
+.card {
+  background: rgba(120,0,200,0.18);
+  border: 1px solid purple;
+  border-radius: 18px;
+  padding: 40px;
+  height: 260px;
+  cursor: pointer;
+  transition: 0.35s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px purple;
+}
+
+.card button {
+  margin-top: 20px;
+  padding: 10px 22px;
+  border: none;
+  background: purple;
+  color: white;
+  border-radius: 6px;
+}
+
+/* DISCORD BUTTON */
+.discord-btn {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  padding: 18px 48px;
+  font-weight: bold;
+  border-radius: 12px;
+  background: rgba(120,0,200,0.3);
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+  z-index: 20;
+}
+
+.discord-btn:hover {
+  box-shadow: 0 0 25px white, 0 0 45px purple;
+}

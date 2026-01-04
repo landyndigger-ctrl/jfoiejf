@@ -7,9 +7,22 @@
 </head>
 <body>
 
+<!-- SIDE NEON BARS -->
+<div class="side-bar left"></div>
+<div class="side-bar right"></div>
+
+<!-- HUD -->
+<div class="hud left-hud">
+  <div>⚡ STATUS: <span>ONLINE</span></div>
+  <div>🔒 NODES: <span>04</span></div>
+</div>
+<div class="hud right-hud">
+  <div>🕒 UTC <span id="time">00:00</span></div>
+</div>
+
 <canvas id="particles"></canvas>
 
-<div class="top-title" id="title">
+<div class="top-title">
   AVION
   <div class="underline"></div>
 </div>
@@ -20,35 +33,35 @@
     <div class="card" onclick="window.open('https://immortal.rs/?code=Njg2NDMzNTEyNzU0MzMxODQwMw==','_blank')">
       <h2>💎 IMMORTAL</h2>
       <p>BEGINNER FRIENDLY</p>
-      <button>🔓 ACCESS DASHBOARD</button>
+      <button>🔓 ACCESS</button>
     </div>
 
     <div class="card" onclick="window.open('https://shockify.st/?code=MDAxOTMwMDE5NzIwMzMwOTQ5XzY4NjQzMzUxMjc1NDMzMTg0MDM=','_blank')">
       <h2>⚡ SHOCKIFY</h2>
       <p>BEGINNER FRIENDLY</p>
-      <button>🔓 ACCESS DASHBOARD</button>
+      <button>🔓 ACCESS</button>
     </div>
 
     <div class="card" onclick="window.open('https://app.beamers.si/u/jiowfsb','_blank')">
       <h2>🧩 SPLUNK</h2>
       <p>MOST UNFLAGGED DOMAIN</p>
-      <button>🔓 ACCESS DASHBOARD</button>
+      <button>🔓 ACCESS</button>
     </div>
 
     <div class="card" onclick="window.open('https://www.logged.tg/auth/chedderytt','_blank')">
       <h2>🔥 INJURIES</h2>
       <p>DUALHOOK SUPPORT</p>
-      <button>🔓 ACCESS DASHBOARD</button>
+      <button>🔓 ACCESS</button>
     </div>
 
   </div>
 </div>
 
-<a class="discord-btn" href="https://discord.gg/HXDVeNrDs2" target="_blank">
-  💬 DISCORD
-</a>
+<a class="discord-btn" href="https://discord.gg/HXDVeNrDs2" target="_blank">💬 DISCORD</a>
 
 <script src="particles.js"></script>
+<script src="effects.js"></script>
+<script src="hud.js"></script>
 <script src="anti-inspect.js"></script>
 </body>
 </html>

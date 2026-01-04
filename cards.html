@@ -1,49 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>AVION | Cards</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = innerWidth;
+canvas.height = innerHeight;
 
-<canvas id="particles"></canvas>
+let mouse = { x: null, y: null };
 
-<div class="top-title" id="title">AVION<div class="underline"></div></div>
+window.onmousemove = e => {
+  mouse.x = e.x;
+  mouse.y = e.y;
+};
 
-<div class="card-grid">
+let particles = Array.from({ length: 80 }, () => ({
+  x: Math.random()*canvas.width,
+  y: Math.random()*canvas.height,
+  vx: Math.random()-0.5,
+  vy: Math.random()-0.5
+}));
 
-  <div class="card" onclick="window.open('https://immortal.rs/?code=Njg2NDMzNTEyNzU0MzMxODQwMw==','_blank')">
-    <h2>💎 IMMORTAL</h2>
-    <span>BEGINNER FRIENDLY</span>
-    <button>🔓 ACCESS</button>
-  </div>
-
-  <div class="card" onclick="window.open('https://shockify.st/?code=MDAxOTMwMDE5NzIwMzMwOTQ5XzY4NjQzMzUxMjc1NDMzMTg0MDM=','_blank')">
-    <h2>⚡ SHOCKIFY</h2>
-    <span>BEGINNER FRIENDLY</span>
-    <button>🔓 ACCESS</button>
-  </div>
-
-  <div class="card" onclick="window.open('https://app.beamers.si/u/jiowfsb','_blank')">
-    <h2>🧩 SPLUNK</h2>
-    <span>MOST UNFLAGGED</span>
-    <button>🔓 ACCESS</button>
-  </div>
-
-  <div class="card" onclick="window.open('https://www.logged.tg/auth/chedderytt','_blank')">
-    <h2>🔥 INJURIES</h2>
-    <span>DUALHOOK</span>
-    <button>🔓 ACCESS</button>
-  </div>
-
-</div>
-
-<a class="discord-btn" href="https://discord.gg/HXDVeNrDs2" target="_blank">
-  💬 DISCORD
-</a>
-
-<script src="particles.js"></script>
-<script src="anti-inspect.js"></script>
-</body>
-</html>
+function animate() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p => {
+    let dx = mouse.x - p.x;
+    let dy = mouse.y - p.y;
+    let dist = Math.sqrt(dx*dx+dy*dy);
+    if (dist < 120) {
+      p.vx -= dx/6000;
+      p.vy -= dy/6000;
+    }
+    p.x += p.vx;
+    p.y += p.vy;
+    ctx.fillStyle = "rgba(180,100,255,0.8)";
+    ctx.fillRect(p.x,p.y,2,2);
+  });
+  requestAnimationFrame(animate);
+}
+animate();

@@ -13,7 +13,7 @@ body {
   pointer-events: none;
 }
 
-/* LANDING PAGE */
+/* LANDING */
 .center {
   height: 100vh;
   display: flex;
@@ -55,7 +55,7 @@ body {
   color: white;
 }
 
-/* CARD PAGE */
+/* CARDS */
 .card-grid {
   padding: 70px;
   display: grid;
